@@ -1,6 +1,9 @@
 #include "CUnit/Basic.h"
 #include "CUnit/Automated.h"
-
+int compteur()
+{
+   return 5;
+}
 int main() {
    // Initialize the CUnit test registry
    if (CUE_SUCCESS != CU_initialize_registry())
@@ -10,6 +13,7 @@ int main() {
    CU_basic_set_mode(CU_BRM_VERBOSE);
    // Run the tests and show the run summary
       CU_set_output_filename( "cunit_testall" );
+   CU_ASSERT(compteur()==5);
 CU_list_tests_to_file();
 CU_automated_run_tests();
    return CU_get_error();
